@@ -1,0 +1,39 @@
+﻿Build started 16/10/2015 13:12:42.
+     1>Project "E:\University\Level 4\Advanced Programming\Pool Game v3.0\Pool Game.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"glut-3.7.6-bin" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp Cushion.cpp ParticleSystem.cpp "Pool Game.cpp" stdafx.cpp Table.cpp
+         Table.cpp
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.h(6): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.h(7): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.h(10): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\table.h(7): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\table.h(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\table.h(9): warning C4305: 'initializing': truncation from 'double' to 'float'
+         stdafx.cpp
+         Pool Game.cpp
+         ParticleSystem.cpp
+         Cushion.cpp
+         Ball.cpp
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.h(6): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.h(7): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.h(10): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\table.h(7): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\table.h(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\table.h(9): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.cpp(6): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>e:\university\level 4\advanced programming\pool game v3.0\ball.cpp(7): warning C4305: 'initializing': truncation from 'double' to 'float'
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\University\Level 4\Advanced Programming\Pool Game v3.0\Debug\Pool Game.exe" /INCREMENTAL /NOLOGO /LIBPATH:"glut-3.7.6-bin" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\University\Level 4\Advanced Programming\Pool Game v3.0\Debug\Pool Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\University\Level 4\Advanced Programming\Pool Game v3.0\Debug\Pool Game.lib" /MACHINE:X86 /SAFESEH Debug\Ball.obj
+         Debug\Cushion.obj
+         Debug\ParticleSystem.obj
+         "Debug\Pool Game.obj"
+         Debug\stdafx.obj
+         Debug\Table.obj
+     1>Ball.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         Pool Game.vcxproj -> E:\University\Level 4\Advanced Programming\Pool Game v3.0\Debug\Pool Game.exe
+     1>Done Building Project "E:\University\Level 4\Advanced Programming\Pool Game v3.0\Pool Game.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.24
