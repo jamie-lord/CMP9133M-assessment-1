@@ -6,6 +6,8 @@ const float gCoeffRestitution = 0.5;
 float gCoeffFriction = 0.03;
 float gGravityAccn = 9.8;
 
+const float quarterTableLength = (2 * (TABLE_Z)) / 4;
+
 int ball::ballIndexCnt = 0;
 
 void ball::Reset(void)
@@ -19,8 +21,8 @@ void ball::Reset(void)
 	//work out rack position
 	if (index == 0)
 	{
-		position(1) = 0.5;
 		position(0) = 0.0;
+		position(1) = quarterTableLength;
 		return;
 	}
 
@@ -33,8 +35,8 @@ void ball::Reset(void)
 		rowIndex -= row;
 		row++;
 	}
-	position(1) = -(rowSep * (row - 1));
 	position(0) = (((row - 1)*sep) / 2.0f) - (sep*(row - rowIndex));
+	position(1) = -((rowSep * (row - 1))+quarterTableLength);
 }
 
 void ball::ApplyImpulse(vec2 imp)

@@ -2,7 +2,7 @@
 
 #include"vecmath.h"
 
-const float POCKET_RADIUS = 0.08;
+const float POCKET_RADIUS = 0.05;
 
 class pocket
 {
