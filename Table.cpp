@@ -41,6 +41,11 @@ void table::Update(int ms)
 	//check for collisions for each ball
 	for (int i = 0; i<NUM_BALLS; i++)
 	{
+		for (int j = 0; j<NUM_POCKETS; j++)
+		{
+			balls[i].DoPocketCollison(pockets[j]);
+		}
+
 		for (int j = 0; j<NUM_CUSHIONS; j++)
 		{
 			balls[i].DoPlaneCollision(cushions[j]);

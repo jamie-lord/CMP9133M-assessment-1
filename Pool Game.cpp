@@ -32,6 +32,17 @@ bool gCamZout = false;
 //rendering options
 #define DRAW_SOLID	(0)
 
+void DrawCircle(float cx, float cz, float r, int num_segments) {
+	glBegin(GL_LINE_LOOP);
+	for (int ii = 0; ii < num_segments; ii++) {
+		float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle 
+		float x = r * cosf(theta);//calculate the x component 
+		float z = r * sinf(theta);//calculate the y component 
+		glVertex3f(x + cx, 0, z + cz);//output vertex 
+	}
+	glEnd();
+}
+
 void DoCamera(int ms)
 {
 	static const vec3 up(0.0,1.0,0.0);
@@ -123,7 +134,6 @@ void DoCamera(int ms)
 	}
 }
 
-
 void RenderScene(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -135,15 +145,18 @@ void RenderScene(void) {
 	glColor3f(1.0,1.0,1.0);
 	for(int i=0;i<NUM_BALLS;i++)
 	{
-		glPushMatrix();
-		glTranslatef(gTable.balls[i].position(0),(BALL_RADIUS/2.0),gTable.balls[i].position(1));
-		#if DRAW_SOLID
-		glutSolidSphere(gTable.balls[i].radius,32,32);
-		#else
-		glutWireSphere(gTable.balls[i].radius,12,12);
-		#endif
-		glPopMatrix();
-		glColor3f(0.0,0.0,1.0);
+		if (!gTable.balls[i].inPocket)
+		{
+			glPushMatrix();
+			glTranslatef(gTable.balls[i].position(0), (BALL_RADIUS / 2.0), gTable.balls[i].position(1));
+			#if DRAW_SOLID
+			glutSolidSphere(gTable.balls[i].radius, 32, 32);
+			#else
+			glutWireSphere(gTable.balls[i].radius, 12, 12);
+			#endif
+			glPopMatrix();
+			glColor3f(0.0, 0.0, 1.0);
+		}
 	}
 	glColor3f(1.0,1.0,1.0);
 
@@ -158,6 +171,13 @@ void RenderScene(void) {
 		glEnd();
 	}
 
+	//draw the pockets
+	for (int i = 0; i < NUM_POCKETS; i++)
+	{
+		DrawCircle(gTable.pockets[i].position(0), gTable.pockets[i].position(1), POCKET_RADIUS, 10);
+	}
+
+	//draw particles
 	for(int i=0;i<gTable.parts.numberOfActiveParticles;i++)
 	{
 		glColor3f(1.0,0.0,0.0);

@@ -13,6 +13,9 @@ void ball::Reset(void)
 	//set velocity to zero
 	velocity = 0.0;
 
+	//set onto table
+	inPocket = false;
+
 	//work out rack position
 	if (index == 0)
 	{
@@ -65,6 +68,11 @@ void ball::DoPlaneCollision(const cushion &b)
 	if (HasHitPlane(b)) HitPlane(b);
 }
 
+void ball::DoPocketCollison(const pocket &p)
+{
+	if (HasHitPocket(p)) HitPocket(p);
+}
+
 void ball::Update(int ms)
 {
 	//apply friction
@@ -101,6 +109,23 @@ bool ball::HasHitBall(const ball &b) const
 	if (relVelocity.Dot(relPosnNorm) >= 0.0) return false;
 	//if distnce is more than sum of radii, have not hit
 	if (dist > (radius + b.radius)) return false;
+	return true;
+}
+
+bool ball::HasHitPocket(const pocket &p) const
+{
+	//work out relative position of ball from pocket,
+	//distance between ball and pocket
+	//and relative velocity
+	vec2 relPosn = position - p.position;
+	float dist = (float)relPosn.Magnitude();
+	vec2 relPosnNorm = relPosn.Normalised();
+	//vec2 relVelocity = velocity - p.velocity;
+
+	//if moving apart, cannot have hit
+	//if (relVelocity.Dot(relPosnNorm) >= 0.0) return false;
+	//if distnce is more than sum of radii, have not hit
+	if (dist > (radius + p.radius)) return false;
 	return true;
 }
 
@@ -156,4 +181,10 @@ void ball::HitBall(ball &b)
 	{
 		gTable.parts.AddParticle(pos);
 	}
+}
+
+void ball::HitPocket(const pocket &p)
+{
+	//velocity = 0;
+	inPocket = true;
 }
