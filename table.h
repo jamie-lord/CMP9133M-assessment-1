@@ -8,7 +8,7 @@ const float TABLE_X = 0.6;
 const float TABLE_Z = 1.2;
 const float TABLE_Y = 0.1;
 
-const int NUM_CUSHIONS = 5;
+const int NUM_CUSHIONS = 4;
 
 class table
 {

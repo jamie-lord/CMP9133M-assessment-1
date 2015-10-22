@@ -1,6 +1,3 @@
-// Pool Game.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include<glut.h>
 #include<math.h>
@@ -173,26 +170,6 @@ void RenderScene(void) {
 		#endif
 		glPopMatrix();		
 	}
-	/*
-	glBegin(GL_LINE_LOOP);
-	glVertex3f (TABLE_X, 0.0, -TABLE_Z);
-	glVertex3f (TABLE_X, 0.1, -TABLE_Z);
-	glVertex3f (TABLE_X, 0.1, TABLE_Z);
-	glVertex3f (TABLE_X, 0.0, TABLE_Z);
-	glEnd();
-	glBegin(GL_LINE_LOOP);
-	glVertex3f (TABLE_X, 0.0, -TABLE_Z);
-	glVertex3f (TABLE_X, 0.1, -TABLE_Z);
-	glVertex3f (-TABLE_X, 0.1, -TABLE_Z);
-	glVertex3f (-TABLE_X, 0.0, -TABLE_Z);
-	glEnd();
-	glBegin(GL_LINE_LOOP);
-	glVertex3f (TABLE_X, 0.0, TABLE_Z);
-	glVertex3f (TABLE_X, 0.1, TABLE_Z);
-	glVertex3f (-TABLE_X, 0.1, TABLE_Z);
-	glVertex3f (-TABLE_X, 0.0, TABLE_Z);
-	glEnd();
-	*/
 
 	//draw the cue
 	if(gDoCue)
@@ -206,8 +183,6 @@ void RenderScene(void) {
 		glColor3f(1.0,1.0,1.0);
 		glEnd();
 	}
-
-	//glPopMatrix();
 
 	glFlush();
 	glutSwapBuffers();
