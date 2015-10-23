@@ -8,7 +8,7 @@ const float BALL_RADIUS = 0.022;
 const float BALL_MASS = 0.1;
 
 const int NUM_BALLS = 16;
-const float SMALL_VELOCITY = 0.01;
+const float SMALL_VELOCITY = 0.1;
 
 const int SIM_UPDATE_MS = 10;
 

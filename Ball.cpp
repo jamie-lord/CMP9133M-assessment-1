@@ -187,6 +187,5 @@ void ball::HitBall(ball &b)
 
 void ball::HitPocket(const pocket &p)
 {
-	//velocity = 0;
 	inPocket = true;
 }

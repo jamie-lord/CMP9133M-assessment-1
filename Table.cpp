@@ -63,9 +63,9 @@ void table::Update(int ms)
 	//update particles
 	parts.update(ms);
 
-	//make some new particles
-	//vec3 pos(0.0,BALL_RADIUS,0.0);
-	//parts.AddParticle(pos);
+	//reset cue ball if pocketed
+	if (balls[0].inPocket)
+		balls[0].Reset();
 }
 
 bool table::AnyBallsMoving(void) const
