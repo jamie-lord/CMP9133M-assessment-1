@@ -32,13 +32,14 @@ bool gCamZout = false;
 //rendering options
 #define DRAW_SOLID	(0)
 
-void DrawCircle(float cx, float cz, float r, int num_segments) {
+void DrawCircle(float cx, float cz, float r) {
 	glBegin(GL_LINE_LOOP);
-	for (int ii = 0; ii < num_segments; ii++) {
-		float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle 
+	for (int ii = 0; ii < 50; ii++) {
+		float theta = 2.0f * 3.1415926f * float(ii) / float(50);//get the current angle 
 		float x = r * cosf(theta);//calculate the x component 
-		float z = r * sinf(theta);//calculate the y component 
-		glVertex3f(x + cx, 0, z + cz);//output vertex 
+		float z = r * sinf(theta);//calculate the z component 
+		glVertex3f(x + cx, 0, z + cz);//output vertex
+		
 	}
 	glEnd();
 }
@@ -174,7 +175,7 @@ void RenderScene(void) {
 	//draw the pockets
 	for (int i = 0; i < NUM_POCKETS; i++)
 	{
-		DrawCircle(gTable.pockets[i].position(0), gTable.pockets[i].position(1), POCKET_RADIUS, 10);
+		DrawCircle(gTable.pockets[i].position(0), gTable.pockets[i].position(1), POCKET_RADIUS);
 	}
 
 	//draw particles
