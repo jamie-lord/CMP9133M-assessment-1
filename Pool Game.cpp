@@ -156,7 +156,22 @@ void RenderScene(void) {
 			glutWireSphere(gTable.balls[i].radius, 12, 12);
 			#endif
 			glPopMatrix();
-			glColor3f(0.0, 0.0, 1.0);
+			if (gTable.balls[i].colour == RED)
+			{
+				glColor3f(1.0, 0.0, 0.0);
+			}
+			else if (gTable.balls[i].colour == YELLOW)
+			{
+				glColor3f(1.0, 1.0, 0.0);
+			}
+			else if (gTable.balls[i].colour == BLACK)
+			{
+				glColor3f(0.0, 0.0, 0.0);
+			}
+			else {
+				glColor3f(0.0, 1.0, 0.0);
+			}
+			
 		}
 	}
 	glColor3f(1.0,1.0,1.0);
@@ -172,6 +187,10 @@ void RenderScene(void) {
 		glEnd();
 	}
 
+	//glColor3f(0.0, 1.0, 0.0);
+	//glRectf(-0.75f, 0.75f, 0.75f, -0.75f);
+	//glRotatef(90, 0, 0, 0);
+	//glColor3f(1.0, 1.0, 1.0);
 	//draw the pockets
 	for (int i = 0; i < NUM_POCKETS; i++)
 	{
@@ -442,7 +461,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	glutInitWindowPosition(0,0);
 	glutInitWindowSize(1000,700);
 	//glutFullScreen();
-	glutCreateWindow("MSc Workshop : Pool Game");
+	glutCreateWindow("Pool Game");
 	#if DRAW_SOLID
 	InitLights();
 	#endif

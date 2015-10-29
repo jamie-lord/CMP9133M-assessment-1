@@ -12,6 +12,8 @@ const float SMALL_VELOCITY = 0.1;
 
 const int SIM_UPDATE_MS = 10;
 
+enum Colours { WHITE, RED, BLACK, YELLOW };
+
 class ball
 {
 	static int ballIndexCnt;
@@ -22,10 +24,23 @@ public:
 	float	mass;
 	int		index;
 	bool inPocket;
+	Colours colour;
 
 	ball() : position(0.0), velocity(0.0), radius(BALL_RADIUS), mass(BALL_MASS), inPocket(false)
 	{
 		index = ballIndexCnt++;
+		if (index == 2 || index == 3 || index == 9 || index == 7 || index == 13 || index == 12 || index == 10)
+		{
+			colour = YELLOW;
+		}
+		else if (index == 0 || index == 1 || index == 5 || index == 8 || index == 6 || index == 14 || index == 11)
+		{
+			colour = RED;
+		}
+		else if (index == 4)
+		{
+			colour = BLACK;
+		}
 		Reset();
 	}
 
