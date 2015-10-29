@@ -188,4 +188,6 @@ void ball::HitBall(ball &b)
 void ball::HitPocket(const pocket &p)
 {
 	inPocket = true;
+	velocity = 0.0;
+	position = (9.0, 9.0);
 }
