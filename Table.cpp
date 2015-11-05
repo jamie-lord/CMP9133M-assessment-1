@@ -24,11 +24,6 @@ void table::SetupCushions(void)
 	cushions[3].vertices[1](0) = -TABLE_X;
 	cushions[3].vertices[1](1) = -TABLE_Z;
 
-	/*cushions[4].vertices[0](0) = TABLE_X - 0.3;
-	cushions[4].vertices[0](1) = -TABLE_Z;
-	cushions[4].vertices[1](0) = -TABLE_X;
-	cushions[4].vertices[1](1) = -TABLE_Z;*/
-
 	for (int i = 0; i<NUM_CUSHIONS; i++)
 	{
 		cushions[i].MakeCentre();

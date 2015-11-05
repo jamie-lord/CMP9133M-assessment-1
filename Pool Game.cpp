@@ -187,10 +187,6 @@ void RenderScene(void) {
 		glEnd();
 	}
 
-	//glColor3f(0.0, 1.0, 0.0);
-	//glRectf(-0.75f, 0.75f, 0.75f, -0.75f);
-	//glRotatef(90, 0, 0, 0);
-	//glColor3f(1.0, 1.0, 1.0);
 	//draw the pockets
 	for (int i = 0; i < NUM_POCKETS; i++)
 	{
