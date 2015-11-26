@@ -17,6 +17,7 @@ const int NUM_PLAYERS = 2;
 class table
 {
 public:
+	int currentActivePlayer = 0;
 	ball balls[NUM_BALLS];
 	cushion cushions[NUM_CUSHIONS];
 	pocket pockets[NUM_POCKETS];
