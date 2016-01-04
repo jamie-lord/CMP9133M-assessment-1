@@ -146,32 +146,29 @@ void RenderScene(void) {
 	glColor3f(1.0,1.0,1.0);
 	for(int i=0;i<NUM_BALLS;i++)
 	{
-		if (!gTable.balls[i].inPocket)
+		glPushMatrix();
+		glTranslatef(gTable.balls[i].position(0), (BALL_RADIUS / 2.0), gTable.balls[i].position(1));
+		#if DRAW_SOLID
+		glutSolidSphere(gTable.balls[i].radius, 32, 32);
+		#else
+		glutWireSphere(gTable.balls[i].radius, 12, 12);
+		#endif
+		glPopMatrix();
+		if (gTable.balls[i].colour == RED)
 		{
-			glPushMatrix();
-			glTranslatef(gTable.balls[i].position(0), (BALL_RADIUS / 2.0), gTable.balls[i].position(1));
-			#if DRAW_SOLID
-			glutSolidSphere(gTable.balls[i].radius, 32, 32);
-			#else
-			glutWireSphere(gTable.balls[i].radius, 12, 12);
-			#endif
-			glPopMatrix();
-			if (gTable.balls[i].colour == RED)
-			{
-				glColor3f(1.0, 0.0, 0.0);
-			}
-			else if (gTable.balls[i].colour == YELLOW)
-			{
-				glColor3f(1.0, 1.0, 0.0);
-			}
-			else if (gTable.balls[i].colour == BLACK)
-			{
-				glColor3f(0.0, 0.0, 0.0);
-			}
-			else {
-				glColor3f(0.0, 1.0, 0.0);
-			}
-			
+			glColor3f(1.0, 0.0, 0.0);
+		}
+		else if (gTable.balls[i].colour == YELLOW)
+		{
+			glColor3f(1.0, 1.0, 0.0);
+		}
+		else if (gTable.balls[i].colour == BLACK)
+		{
+			glColor3f(0.0, 0.0, 1.0);
+		}
+		else if (gTable.balls[i].colour == WHITE)
+		{
+			glColor3f(1.0, 1.0, 1.0);
 		}
 	}
 	glColor3f(1.0,1.0,1.0);

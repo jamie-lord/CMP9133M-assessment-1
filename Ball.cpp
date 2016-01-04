@@ -1,6 +1,9 @@
 #include<stdlib.h>
+#include <iostream>
 #include"table.h"
 #include"ball.h"
+
+using namespace std;
 
 const float gCoeffRestitution = 0.5;
 float gCoeffFriction = 0.03;
@@ -18,25 +21,29 @@ void ball::Reset(void)
 	//set onto table
 	inPocket = false;
 
-	//work out rack position
+	//reset the cue ball
 	if (index == 0)
 	{
 		position(0) = 0.0;
 		position(1) = quarterTableLength;
+		cout << "RESET CUE BALL" << endl;
 		return;
 	}
+	else {
 
-	static const float sep = (BALL_RADIUS*3.0f);
-	static const float rowSep = (BALL_RADIUS*2.5f);
-	int row = 1;
-	int rowIndex = index;
-	while (rowIndex > row)
-	{
-		rowIndex -= row;
-		row++;
+		//setup ball position
+		static const float sep = (BALL_RADIUS*3.0f);
+		static const float rowSep = (BALL_RADIUS*2.5f);
+		int row = 1;
+		int rowIndex = index;
+		while (rowIndex > row)
+		{
+			rowIndex -= row;
+			row++;
+		}
+		position(0) = (((row - 1)*sep) / 2.0f) - (sep*(row - rowIndex));
+		position(1) = -((rowSep * (row - 1)) + quarterTableLength);
 	}
-	position(0) = (((row - 1)*sep) / 2.0f) - (sep*(row - rowIndex));
-	position(1) = -((rowSep * (row - 1))+quarterTableLength);
 }
 
 void ball::ApplyImpulse(vec2 imp)
@@ -133,6 +140,7 @@ bool ball::HasHitPocket(const pocket &p) const
 
 void ball::HitPlane(const cushion &c)
 {
+	cout << "Ball " << index << " has hit a plane" << endl;
 	//reverse velocity component perpendicular to plane  
 	double comp = velocity.Dot(c.normal) * (1.0 + gCoeffRestitution);
 	vec2 delta = -(c.normal * comp);
@@ -151,6 +159,8 @@ void ball::HitPlane(const cushion &c)
 
 void ball::HitBall(ball &b)
 {
+	cout << "Ball " << index << " has hit ball " << b.index << endl;
+
 	//find direction from other ball to this ball
 	vec2 relDir = (position - b.position).Normalised();
 
@@ -187,9 +197,13 @@ void ball::HitBall(ball &b)
 
 void ball::HitPocket(const pocket &p)
 {
+	cout << "Ball " << index << " has entered pocket " << p.index << endl;
+
 	inPocket = true;
 	velocity = 0.0;
-	position = (0.0, 1.5);
-
-
+	if (index != 0)
+	{
+		position(0) = 0.0;
+		position(1) = 0.7 + (index / 10);
+	}
 }

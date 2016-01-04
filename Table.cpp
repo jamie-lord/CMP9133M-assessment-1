@@ -36,30 +36,36 @@ void table::Update(int ms)
 	//check for collisions for each ball
 	for (int i = 0; i<NUM_BALLS; i++)
 	{
-		for (int j = 0; j<NUM_POCKETS; j++)
+		if (!balls[i].inPocket)
 		{
-			balls[i].DoPocketCollison(pockets[j]);
-		}
+			for (int j = 0; j < NUM_POCKETS; j++)
+			{
+				balls[i].DoPocketCollison(pockets[j]);
+			}
 
-		for (int j = 0; j<NUM_CUSHIONS; j++)
-		{
-			balls[i].DoPlaneCollision(cushions[j]);
-		}
+			for (int j = 0; j < NUM_CUSHIONS; j++)
+			{
+				balls[i].DoPlaneCollision(cushions[j]);
+			}
 
-		for (int j = (i + 1); j<NUM_BALLS; j++)
-		{
-			balls[i].DoBallCollision(balls[j]);
+			for (int j = (i + 1); j < NUM_BALLS; j++)
+			{
+				balls[i].DoBallCollision(balls[j]);
+			}
 		}
 	}
 
 	//update all balls
-	for (int i = 0; i<NUM_BALLS; i++) balls[i].Update(ms);
+	for (int i = 0; i < NUM_BALLS; i++) {
+		if(!balls[i].inPocket)
+			balls[i].Update(ms);
+	}
 
 	//update particles
 	parts.update(ms);
 
 	//reset cue ball if pocketed
-	if (balls[0].inPocket)
+	if (balls[0].inPocket && !gTable.AnyBallsMoving())
 		balls[0].Reset();
 }
 
