@@ -89,7 +89,7 @@ void ball::Update(int ms)
 	//integrate position
 	position += ((velocity * ms) / 1000.0f);
 	//set small velocities to zero
-	if (velocity.Magnitude()<SMALL_VELOCITY) velocity = 0.0;
+	if (velocity.Magnitude() < SMALL_VELOCITY) velocity = 0.0;
 }
 
 bool ball::HasHitPlane(const cushion &c) const
@@ -151,7 +151,7 @@ void ball::HitPlane(const cushion &c)
 	vec3 pos(position(0), radius / 2.0, position(1));
 	vec3 oset(c.normal(0), 0.0, c.normal(1));
 	pos += (oset*radius);
-	for (int i = 0; i<n; i++)
+	for (int i = 0; i < n; i++)
 	{
 		gTable.parts.AddParticle(pos);
 	}
@@ -189,7 +189,7 @@ void ball::HitBall(ball &b)
 	vec3 pos(position(0), radius / 2.0, position(1));
 	vec3 oset(relDir(0), 0.0, relDir(1));
 	pos += (oset*radius);
-	for (int i = 0; i<n; i++)
+	for (int i = 0; i < n; i++)
 	{
 		gTable.parts.AddParticle(pos);
 	}
@@ -205,5 +205,11 @@ void ball::HitPocket(const pocket &p)
 	{
 		position(0) = 0.0;
 		position(1) = 0.7 + (index / 10);
+		gTable.players[gTable.currentActivePlayer].score++;
+
+		cout << "Player " << gTable.currentActivePlayer << " potted ball " << index << " in pocket " << p.index << ". Their current score is " << gTable.players[gTable.currentActivePlayer].score << endl;
+
+		gTable.changePlayer = true;
 	}
+
 }

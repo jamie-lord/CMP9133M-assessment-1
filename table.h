@@ -23,6 +23,7 @@ public:
 	pocket pockets[NUM_POCKETS];
 	particleSet parts;
 	player players[NUM_PLAYERS];
+	bool changePlayer = false;
 
 	void SetupCushions(void);
 	void Update(int ms);

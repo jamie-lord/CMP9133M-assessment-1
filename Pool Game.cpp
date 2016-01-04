@@ -1,7 +1,11 @@
 #include "stdafx.h"
+#include<stdlib.h>
+#include <iostream>
 #include<glut.h>
 #include<math.h>
 #include"table.h"
+
+using namespace std;
 
 const float TWO_PI = 6.2832;
 
@@ -210,11 +214,32 @@ void RenderScene(void) {
 		glBegin(GL_LINES);
 		float cuex = sin(gCueAngle) * gCuePower;
 		float cuez = cos(gCueAngle) * gCuePower;
-		glColor3f(1.0,0.0,0.0);
+		if (gTable.players[gTable.currentActivePlayer].colour == PINK)
+		{
+			glColor3f(1.0, 0.0, 1.0);
+		}
+		else {
+			glColor3f(0.0, 1.0, 0.0);
+		}
+		
+		
 		glVertex3f (gTable.balls[0].position(0), (BALL_RADIUS/2.0f), gTable.balls[0].position(1));
 		glVertex3f ((gTable.balls[0].position(0)+cuex), (BALL_RADIUS/2.0f), (gTable.balls[0].position(1)+cuez));
 		glColor3f(1.0,1.0,1.0);
 		glEnd();
+		if (gTable.changePlayer)
+		{
+			if (gTable.currentActivePlayer == 0)
+			{
+				gTable.currentActivePlayer = 1;
+			}
+			else
+			{
+				gTable.currentActivePlayer = 1;
+			}
+			gTable.changePlayer = false;
+			cout << "It is now player " << gTable.players[gTable.currentActivePlayer].index << "s turn" << endl;
+		}
 	}
 
 	glFlush();

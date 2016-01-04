@@ -12,7 +12,7 @@ const float SMALL_VELOCITY = 0.1;
 
 const int SIM_UPDATE_MS = 10;
 
-enum Colours { WHITE, RED, BLACK, YELLOW };
+enum BallColours { WHITE, RED, BLACK, YELLOW };
 
 class ball
 {
@@ -24,7 +24,7 @@ public:
 	float	mass;
 	int		index;
 	bool inPocket;
-	Colours colour;
+	BallColours colour;
 
 	ball() : position(0.0), velocity(0.0), radius(BALL_RADIUS), mass(BALL_MASS), inPocket(false)
 	{
