@@ -1,4 +1,5 @@
 #include"table.h"
+#include <math.h>
 
 table gTable;
 
@@ -34,8 +35,12 @@ void table::SetupCushions(void)
 void table::Update(int ms)
 {
 	//check for collisions for each ball
-	for (int i = 0; i<NUM_BALLS; i++)
+	for (int i = 0; i < NUM_BALLS; i++)
 	{
+		if (isnan(balls[i].velocity(0)) || isnan(balls[i].velocity(1)))
+		{
+			balls[i].velocity = 0.0;
+		}
 		if (!balls[i].inPocket)
 		{
 			for (int j = 0; j < NUM_POCKETS; j++)
@@ -78,4 +83,20 @@ bool table::AnyBallsMoving(void) const
 		if (balls[i].velocity(1) != 0.0) return true;
 	}
 	return false;
+}
+
+void table::ResetTable()
+{
+	// reset those balls
+	for (int i = 0; i<NUM_BALLS; i++)
+	{
+		balls[i].Reset();
+	}
+	// reset current player
+	currentActivePlayer = 0;
+	// reset all player's scores
+	for (int i = 0; i < NUM_PLAYERS; i++)
+	{
+		players[i].score = 0;
+	}
 }

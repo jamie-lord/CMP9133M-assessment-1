@@ -28,7 +28,8 @@ public:
 
 	ball() : position(0.0), velocity(0.0), radius(BALL_RADIUS), mass(BALL_MASS), inPocket(false)
 	{
-		index = ballIndexCnt++;
+		index = ballIndexCnt;
+		ballIndexCnt++;
 		if (
 			index == 2 ||
 			index == 3 ||
@@ -42,7 +43,7 @@ public:
 			colour = YELLOW;
 		}
 		else if (
-			index == 0 ||
+			
 			index == 1 ||
 			index == 5 ||
 			index == 6 ||
@@ -56,6 +57,10 @@ public:
 		else if (index == 4)
 		{
 			colour = BLACK;
+		}
+		else if (index == 0)
+		{
+			colour = WHITE;
 		}
 		Reset();
 	}

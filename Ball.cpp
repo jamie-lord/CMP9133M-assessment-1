@@ -201,15 +201,17 @@ void ball::HitPocket(const pocket &p)
 
 	inPocket = true;
 	velocity = 0.0;
+
 	if (index != 0)
 	{
-		position(0) = 0.0;
-		position(1) = 0.7 + (index / 10);
+		position(0) = 10.0;
+		position(1) = 10.0;
 		gTable.players[gTable.currentActivePlayer].score++;
 
-		cout << "Player " << gTable.currentActivePlayer << " potted ball " << index << " in pocket " << p.index << ". Their current score is " << gTable.players[gTable.currentActivePlayer].score << endl;
-
-		gTable.changePlayer = true;
 	}
 
+	cout << "Player " << gTable.currentActivePlayer << " potted ball " << index << " in pocket " << p.index << ". Their current score is " << gTable.players[gTable.currentActivePlayer].score << endl;
+
+	// change to the other player
+	gTable.changePlayer = true;
 }

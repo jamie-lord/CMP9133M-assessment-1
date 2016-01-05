@@ -28,6 +28,7 @@ public:
 	void SetupCushions(void);
 	void Update(int ms);
 	bool AnyBallsMoving(void) const;
+	void ResetTable();
 };
 
 extern table gTable;
