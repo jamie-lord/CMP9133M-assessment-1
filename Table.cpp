@@ -99,4 +99,6 @@ void table::ResetTable()
 	{
 		players[i].score = 0;
 	}
+	// reset balls on table count
+	ballsOnTable = NUM_BALLS;
 }

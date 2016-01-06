@@ -207,6 +207,9 @@ void ball::HitPocket(const pocket &p)
 	if (index != 0)
 	{
 		gTable.players[gTable.currentActivePlayer].score++;
+
+		// decrement balls on table count
+		gTable.ballsOnTable--;
 	}
 
 	cout << "Player " << gTable.currentActivePlayer << " potted ball " << index << " in pocket " << p.index << ". Their current score is " << gTable.players[gTable.currentActivePlayer].score << endl;

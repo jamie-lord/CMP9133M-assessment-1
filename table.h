@@ -24,6 +24,7 @@ public:
 	particleSet parts;
 	player players[NUM_PLAYERS];
 	bool changePlayer = false;
+	int ballsOnTable = NUM_BALLS;
 
 	void SetupCushions(void);
 	void Update(int ms);
