@@ -216,4 +216,30 @@ void ball::HitPocket(const pocket &p)
 
 	// change to the other player
 	gTable.changePlayer = true;
+
+	// check to see if the game is over...
+	if (gTable.ballsOnTable == 1)
+	{
+		// thank god! the game is finally over, that probably took >9000 years
+		cout << "GAME OVER! Final score..." << endl;
+		int topScore = 99;
+		int winner = 99;
+		for (int i = 0; i < NUM_PLAYERS; i++)
+		{
+			cout << "Player " << i << " scored " << gTable.players[i].score << endl;
+			if (topScore == 99)
+			{
+				topScore = gTable.players[i].score;
+				winner = i;
+			}
+			else if (gTable.players[i].score > topScore)
+			{
+				topScore = gTable.players[i].score;
+				winner = i;
+			}
+		}
+		// better say who's one...
+		cout << "THE WINNER IS... Player " << winner << "!" << endl;
+		gTable.ResetTable();
+	}
 }

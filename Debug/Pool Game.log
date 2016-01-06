@@ -1,15 +1,7 @@
-﻿Build started 1/6/2016 9:41:54 AM.
+﻿Build started 1/6/2016 9:59:06 AM.
      1>Project "C:\Users\Jamie\Documents\CMP9133M-assessment-1\Pool Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"glut-3.7.6-bin" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp Pocket.cpp "Pool Game.cpp" Table.cpp
-         Table.cpp
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\pocket.h(5): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\ball.h(7): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\ball.h(8): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\ball.h(11): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\table.h(9): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\table.h(10): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jamie\documents\cmp9133m-assessment-1\table.h(11): warning C4305: 'initializing': truncation from 'double' to 'float'
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"glut-3.7.6-bin" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp
          Ball.cpp
      1>c:\users\jamie\documents\cmp9133m-assessment-1\pocket.h(5): warning C4305: 'initializing': truncation from 'double' to 'float'
      1>c:\users\jamie\documents\cmp9133m-assessment-1\ball.h(7): warning C4305: 'initializing': truncation from 'double' to 'float'
@@ -20,12 +12,6 @@
      1>c:\users\jamie\documents\cmp9133m-assessment-1\table.h(11): warning C4305: 'initializing': truncation from 'double' to 'float'
      1>c:\users\jamie\documents\cmp9133m-assessment-1\ball.cpp(9): warning C4305: 'initializing': truncation from 'double' to 'float'
      1>c:\users\jamie\documents\cmp9133m-assessment-1\ball.cpp(10): warning C4305: 'initializing': truncation from 'double' to 'float'
-         Generating Code...
-         Compiling...
-         Pool Game.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Pocket.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jamie\Documents\CMP9133M-assessment-1\Debug\Pool Game.exe" /INCREMENTAL /NOLOGO /LIBPATH:"glut-3.7.6-bin" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Jamie\Documents\CMP9133M-assessment-1\Debug\Pool Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jamie\Documents\CMP9133M-assessment-1\Debug\Pool Game.lib" /MACHINE:X86 /SAFESEH Debug\Ball.obj
          Debug\Cushion.obj
@@ -40,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.32
+Time Elapsed 00:00:01.04

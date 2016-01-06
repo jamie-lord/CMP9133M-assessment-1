@@ -231,15 +231,16 @@ void RenderScene(void) {
 		glVertex3f((gTable.balls[0].position(0) + cuex), (BALL_RADIUS / 2.0f), (gTable.balls[0].position(1) + cuez));
 		glColor3f(1.0, 1.0, 1.0);
 		glEnd();
+		// change the active player if needed
 		if (gTable.changePlayer)
 		{
-			if (gTable.currentActivePlayer == 0)
+			if (gTable.currentActivePlayer == NUM_PLAYERS-1)
 			{
-				gTable.currentActivePlayer = 1;
+				gTable.currentActivePlayer = 0;
 			}
 			else
 			{
-				gTable.currentActivePlayer = 0;
+				gTable.currentActivePlayer++;
 			}
 			gTable.changePlayer = false;
 			cout << "It is now player " << gTable.players[gTable.currentActivePlayer].index << "s turn" << endl;
