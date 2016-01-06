@@ -203,8 +203,22 @@ void ball::HitPocket(const pocket &p)
 	velocity = 0.0;
 	position(0) = 10.0;
 	position(1) = 10.0;
-	// only increment player score if the ball isn't the cue ball
-	if (index != 0)
+
+	// potted the cue ball!
+	if (index == 0)
+	{
+		// deduct a point for potting the cue ball - silly player is silly
+		gTable.players[gTable.currentActivePlayer].score--;
+	}
+	// black ball... more points!
+	else if (index == 5)
+	{
+		gTable.players[gTable.currentActivePlayer].score = gTable.players[gTable.currentActivePlayer].score + 2;
+
+		// decrement balls on table count
+		gTable.ballsOnTable--;
+	}
+	else
 	{
 		gTable.players[gTable.currentActivePlayer].score++;
 
