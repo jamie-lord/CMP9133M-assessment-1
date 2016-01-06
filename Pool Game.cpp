@@ -145,24 +145,16 @@ void RenderScene(void) {
 	glLoadIdentity();
 	gluLookAt(gCamPos(0), gCamPos(1), gCamPos(2), gCamLookAt(0), gCamLookAt(1), gCamLookAt(2), 0.0f, 1.0f, 0.0f);
 
-	//draw the ball
+	//draw the balls
 	glColor3f(1.0, 1.0, 1.0);
 	for (int i = 0; i < NUM_BALLS; i++)
 	{
 		// no point drawing the ball if it's in a pocket - save some time here. :)
 		if (!gTable.balls[i].inPocket)
 		{
-			glPushMatrix();
-			glTranslatef(gTable.balls[i].position(0), (BALL_RADIUS / 2.0), gTable.balls[i].position(1));
-#if DRAW_SOLID
-			glutSolidSphere(gTable.balls[i].radius, 32, 32);
-#else
-			glutWireSphere(gTable.balls[i].radius, 12, 12);
-#endif
-			glPopMatrix();
 			if (gTable.balls[i].colour == RED)
 			{
-				glColor3f(1.0, 0.0, 0.0);
+					glColor3f(1.0, 0.0, 0.0);
 			}
 			else if (gTable.balls[i].colour == YELLOW)
 			{
@@ -176,6 +168,14 @@ void RenderScene(void) {
 			{
 				glColor3f(1.0, 1.0, 1.0);
 			}
+			glPushMatrix();
+			glTranslatef(gTable.balls[i].position(0), (BALL_RADIUS / 2.0), gTable.balls[i].position(1));
+#if DRAW_SOLID
+			glutSolidSphere(gTable.balls[i].radius, 32, 32);
+#else
+			glutWireSphere(gTable.balls[i].radius, 12, 12);
+#endif
+			glPopMatrix();
 		}
 
 	}

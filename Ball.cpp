@@ -201,13 +201,12 @@ void ball::HitPocket(const pocket &p)
 
 	inPocket = true;
 	velocity = 0.0;
-
+	position(0) = 10.0;
+	position(1) = 10.0;
+	// only increment player score if the ball isn't the cue ball
 	if (index != 0)
 	{
-		position(0) = 10.0;
-		position(1) = 10.0;
 		gTable.players[gTable.currentActivePlayer].score++;
-
 	}
 
 	cout << "Player " << gTable.currentActivePlayer << " potted ball " << index << " in pocket " << p.index << ". Their current score is " << gTable.players[gTable.currentActivePlayer].score << endl;
